@@ -1,12 +1,15 @@
-#pragma once
-
 #include "Human.hpp"
-
-#include <list>
 #include <vector>
 
 std::vector< char > foo(std::list< Human >& people)
 {
-    // Twoja implementacja tutaj
-    return {};
+    std::vector< char > result;
+
+    for (auto& person : people) {
+        person.birthday();
+        result.push_back(person.isMonster() ? 'n' : 'y');
+    }
+    std::reverse(result.begin(), result.end());
+
+    return result;
 }
